@@ -1,3 +1,4 @@
 requests
 robotframework
 robotframework-requests
+robotframework-debuglibrary
