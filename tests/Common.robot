@@ -5,13 +5,12 @@ Library             RequestsLibrary
 Library             DebugLibrary            #breakpoint keyword - Debug
 
 Library             utils.py
-Variables           constants.py
+Variables           api${/}constants.py
+Variables           yahoo-finance${/}constants.py
 
 
 *** Variables ***
-${EPAM_SYMBOL} =    EPAM
-${EPAM_WEBSITE} =   http://www.epam.com
-${EPAM_LONGNAME} =  EPAM Systems, Inc.
+
 
 
 *** Keywords ***
@@ -30,18 +29,19 @@ Get_Auth_Headers
     ...                                             x-rapidapi-key=${value}
     [Return]    ${header}
 
-Get_Params_Symbol
+Append_To_Params
     [Documentation]
-    [Arguments]             ${symbol}
+    [Arguments]             ${key}     ${value}     &{params}
 
-    ${params_symbal} =      set variable                ${params_region_lang}
-    Set To Dictionary       ${params_region_lang}       symbol              ${symbol}
-    [Return]                ${params_symbal}
+    ${api_params} =         run keyword if          ${params}       set variable    ${params}
+    ...                     ELSE                                    set variable    ${params_region_lang}
+    Set To Dictionary       ${api_params}           ${key}          ${value}
+    [Return]                ${api_params}
 
 Connect_Api_YaFin
     [Documentation]
 
-    create session          alias=api                   url=${BASE_URL}     verify=True
+    create session          alias=api                   url=${BASE_URL}     verify=True     disable_warnings=1
 
 YaFin_Get_Request
     [Documentation]
@@ -49,5 +49,5 @@ YaFin_Get_Request
 
     ${headers} =                    Get_Auth_Headers
     ${response} =                   get request                 ${alias}     ${uri}     ${headers}    params=${params}
-    should be equal as strings      ${response.status_code}     200
+    should be equal as strings      ${response.status_code}     200          msg=Response code does not 200 OK
     [Return]                        ${response}
