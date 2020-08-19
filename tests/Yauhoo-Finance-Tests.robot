@@ -1,5 +1,5 @@
 *** Settings ***
-#robot  --pythonpath resources -d results/  -v API_KEY:e212b4225fmshed411aea23361d9p1df34bjsn46dcf30143ef tests/Yauhoo-Finance-Tests.robot
+#robot  --pythonpath resources -d results/  -v API_KEY:<key> tests/Yauhoo-Finance-Tests.robot
 Documentation
 
 Resource            .${/}Common.robot
