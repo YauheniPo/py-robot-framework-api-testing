@@ -5,6 +5,8 @@ params_region_lang = {'region': 'US', 'lang': 'en'}
 STOCK = 'stock/'
 # Methods
 GET_DETAIL = 'get-detail'
+V2 = 'v2/'
+GET_ANALYSIS = 'get-analysis/'
 
 # Endpoint
 MARKET = 'market/'
