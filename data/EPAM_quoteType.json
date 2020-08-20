@@ -1,0 +1,13 @@
+{
+  "exchange": "NYQ",
+  "shortName": "EPAM Systems, Inc.",
+  "longName": "EPAM Systems, Inc.",
+  "exchangeTimezoneName": "America/New_York",
+  "exchangeTimezoneShortName": "EDT",
+  "isEsgPopulated": false,
+  "gmtOffSetMilliseconds": "-14400000",
+  "quoteType": "EQUITY",
+  "symbol": "EPAM",
+  "messageBoardId": "finmb_4773318",
+  "market": "us_market"
+}

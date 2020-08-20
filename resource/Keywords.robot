@@ -1,16 +1,5 @@
 *** Settings ***
-Library             OperatingSystem
-Library             Collections
-Library             RequestsLibrary
-Library             DebugLibrary            #breakpoint keyword - Debug
-
-Library             utils.py
-Variables           api${/}constants.py
-Variables           yahoo-finance${/}constants.py
-
-
-*** Variables ***
-
+Resource                Common.robot
 
 
 *** Keywords ***
@@ -18,7 +7,7 @@ Get_builtin_Parameter
     [Documentation]
     [Arguments]         ${key}
 
-    ${value} =          get builtin param           ${key}
+    ${value} =          COMMON.get builtin param    ${key}
     [Return]            ${value}
 
 Get_Auth_Headers
@@ -41,7 +30,7 @@ Append_To_Params
 Connect_Api_YaFin
     [Documentation]
 
-    create session          alias=api                   url=${BASE_URL}     verify=True     disable_warnings=1
+    create session          alias=api               url=${BASE_URL}     verify=True     disable_warnings=1
 
 YaFin_Get_Request
     [Documentation]
