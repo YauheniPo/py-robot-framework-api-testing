@@ -1,4 +1,6 @@
 *** Settings ***
+#robot  --pythonpath library -d results/  -v API_KEY:<key> tests/Yauhoo-Finance-*.robot
+#pabot --processes 4 --pythonpath library -d results/  -v API_KEY:<key> tests/Yauhoo-Finance-*.robot
 Library             OperatingSystem
 Library             Collections
 Library             RequestsLibrary

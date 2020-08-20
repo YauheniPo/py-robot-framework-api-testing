@@ -10,6 +10,7 @@ class ConfigReader(Common):
     """Class with json file reader functions"""
 
     def get_json_from_file(self, path):
+        self.built_in.log(f"Get JSON data from filepath: ${path}")
         with open(path) as json_file:
             return json.loads(json_file.read())
 
@@ -17,6 +18,7 @@ class ConfigReader(Common):
         return obj.Schema().load(self.get_json_from_file(path))
 
     def get_quote_type_from_json(self, symbol: str):
-        return self.get_obj_from_json(QuoteType,
-                                      os.path.join(configuration.DATA_FOLDER,
-                                                   f"{symbol.upper()}{configuration.NAME_PART_QUOTE_TYPE_JSON}"))
+        json_filepath = os.path.join(configuration.DATA_FOLDER,
+                                     f"{symbol.upper()}{configuration.NAME_PART_QUOTE_TYPE_JSON}")
+        self.built_in.log(f"Get JSON data from filepath: ${json_filepath}")
+        return self.get_obj_from_json(QuoteType, json_filepath)

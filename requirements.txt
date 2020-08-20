@@ -2,5 +2,6 @@ requests
 robotframework
 robotframework-requests
 robotframework-debuglibrary
+robotframework-pabot
 
-marshmallow_dataclass
+marshmallow-dataclass
