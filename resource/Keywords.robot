@@ -2,6 +2,10 @@
 Resource                Common.robot
 
 
+*** Variables ***
+${API_HOST} =           apidojo-yahoo-finance-v1.p.rapidapi.com
+
+
 *** Keywords ***
 Get_builtin_Parameter
     [Documentation]
@@ -14,13 +18,13 @@ Get_Auth_Headers
     [Documentation]
 
     ${value} =          Get_builtin_Parameter       API_KEY
-    ${header} =         create dictionary           x-rapidapi-host=apidojo-yahoo-finance-v1.p.rapidapi.com
+    ${header} =         create dictionary           x-rapidapi-host=${API_HOST}
     ...                                             x-rapidapi-key=${value}
     [Return]    ${header}
 
 Append_To_Params
     [Documentation]
-    [Arguments]             ${key}     ${value}     &{params}
+    [Arguments]             ${key}     ${value}     ${params}=${None}
 
     ${api_params} =         run keyword if          ${params}       set variable    ${params}
     ...                     ELSE                                    set variable    ${params_region_lang}
