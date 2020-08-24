@@ -46,10 +46,13 @@ Validate Summary Detail
     ${symbol_title} =                       format string               ${SYMBOL_TITLE_TEMPLATE}
     ...                                                                 ${api_long_name}    ${symbol}
     SOFT.should be equal as strings         ${symbol_ui.title}          ${symbol_title}
-    :FOR    ${key}   ${value}    IN     &{SUMMARY_UI_API_MATCHER}
-    \   ${value} =      set variable        ${SUMMARY_UI_API_MATCHER}[${key}]
-    \   debug
-    \   SOFT.should be equal as strings     ${symbol_ui.${value}}       ${api_summary_detail_dict['${value}']['fmt']}
+    FOR    ${key}   ${value}    IN     &{SUMMARY_UI_API_MATCHER}
+        ${summary_value} =      set variable        ${api_summary_detail_dict['${value}'].get('longFmt')}
+        debug
+        ${summary_value}=       evaluate            $api_summary_detail_dict[$value]['fmt'] if $summary_value is None else $summary_value
+        SOFT.should be equal as strings             ${symbol_ui.${value}}       ${summary_value}
+        ...                                         msg=Incorrect '${value}' value
+        END
 
 Get_UI_Symbol_URL
     [Documentation]
