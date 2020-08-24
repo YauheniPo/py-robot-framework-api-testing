@@ -1,0 +1,13 @@
+{
+  "exchange": "NMS",
+  "shortName": "Apple Inc.",
+  "longName": "Apple Inc.",
+  "exchangeTimezoneName": "America/New_York",
+  "exchangeTimezoneShortName": "EDT",
+  "isEsgPopulated": false,
+  "gmtOffSetMilliseconds": "-14400000",
+  "quoteType": "EQUITY",
+  "symbol": "AAPL",
+  "messageBoardId": "finmb_24937",
+  "market": "us_market"
+}

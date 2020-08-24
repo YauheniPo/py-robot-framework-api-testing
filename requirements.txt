@@ -2,3 +2,9 @@ requests
 robotframework
 robotframework-requests
 robotframework-debuglibrary
+robotframework-pabot
+robotframework-seleniumlibrary
+robotframework-stringformat
+
+marshmallow-dataclass
+webdriver-manager
