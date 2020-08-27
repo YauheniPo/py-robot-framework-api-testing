@@ -16,12 +16,8 @@ RUN apt-get update && \
 #=========
 # Chrome
 #=========
-RUN apt-get install google-chrome-stable
-
-#============
-# ChromeDriver
-#============
-RUN webdrivermanager --linkpath AUTO chrome
+#RUN apt-get -y install google-chrome-stable
+#RUN apt-get install -f
 
 #=========
 # Firefox
@@ -61,6 +57,10 @@ RUN cd py-robot-framework-api-testing && \
     ls -a && \
     pip install -r requirements.txt
 
+#============
+# ChromeDriver
+#============
+RUN webdrivermanager --linkpath AUTO chrome
 
 CMD pwd && \
     cd py-robot-framework-api-testing && \
