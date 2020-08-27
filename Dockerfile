@@ -60,7 +60,8 @@ RUN cd py-robot-framework-api-testing && \
 #============
 # ChromeDriver
 #============
-RUN webdrivermanager --linkpath AUTO chrome
+RUN pwd='PWD'
+RUN webdrivermanager --linkpath $PWD chrome
 
 CMD pwd && \
     cd py-robot-framework-api-testing && \

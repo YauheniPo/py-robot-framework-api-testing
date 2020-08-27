@@ -4,7 +4,7 @@ Documentation
 Resource            ..${/}resource${/}Common_UI.robot
 
 Test Setup          Open_Browser_Symbol_URL                     ${EPAM_SYMBOL}
-Test Teardown       Run Keyword If Test Failed                  Take Screenshot
+Test Teardown       Run Keyword If Test Failed                  Capture Page Screenshot
 Suite Setup         Connect_Api_YaFin
 Suite Teardown      Test_Suite_Teardown
 
@@ -26,7 +26,7 @@ Check_Yahoo_Finance_Summary_Detail_With_UI
     Validate Summary Detail          ${symbol_ui}
     ...                              ${api_summary_detail_dict}
     ...                              ${api_long_name}
-    ...                              23
+    ...                              ${symbol}
 
 *** Keywords ***
 Get_Summary_Detail_Api

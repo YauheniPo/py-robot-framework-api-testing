@@ -5,7 +5,6 @@ robotframework-debuglibrary
 robotframework-pabot
 robotframework-seleniumlibrary
 robotframework-stringformat
-robotframework-screencaplibrary
 
 marshmallow-dataclass
 webdrivermanager
