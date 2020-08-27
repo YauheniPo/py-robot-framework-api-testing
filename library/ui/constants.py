@@ -11,6 +11,6 @@ SUMMARY_UI_API_MATCHER = {
     'Avg. Volume': 'averageVolume'
 }
 
-price.regularMarketPrice
-price.regularMarketChange
-price.regularMarketChangePercent
+# price.regularMarketPrice
+# price.regularMarketChange
+# price.regularMarketChangePercent
