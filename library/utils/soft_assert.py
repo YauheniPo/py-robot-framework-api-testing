@@ -4,7 +4,13 @@ from utils.common import Common
 class SoftAssert(Common):
     """Class for soft assert"""
 
-    def should_be_equal_as_strings(self, first, second, msg=None, values=True, ignore_case=False):
+    def should_be_equal_as_strings(
+            self,
+            first,
+            second,
+            msg=None,
+            values=True,
+            ignore_case=False):
         """Check if strings equal.
 
         Args:
@@ -15,8 +21,7 @@ class SoftAssert(Common):
         """
 
         self.built_in.run_keyword_and_continue_on_failure(
-            'BuiltIn.Should Be Equal As Strings', first, second, msg, values, ignore_case
-        )
+            'BuiltIn.Should Be Equal As Strings', first, second, msg, values, ignore_case)
 
     def should_not_be_true(self, expected, msg=None):
         """Check is not be true.
@@ -68,7 +73,13 @@ class SoftAssert(Common):
             'BuiltIn.Should Not Contain', container, item, msg
         )
 
-    def should_not_be_equal(self, first, second, msg=None, values=True, ignore_case=False):
+    def should_not_be_equal(
+            self,
+            first,
+            second,
+            msg=None,
+            values=True,
+            ignore_case=False):
         """Check equals.
 
         Args:
@@ -79,8 +90,7 @@ class SoftAssert(Common):
         """
 
         self.built_in.run_keyword_and_continue_on_failure(
-            'BuiltIn.Should Not Be Equal', first, second, msg, values, ignore_case
-        )
+            'BuiltIn.Should Not Be Equal', first, second, msg, values, ignore_case)
 
     def should_be_equal_as_integers(self, expected, actual, msg=None):
         """Check integer equals.
