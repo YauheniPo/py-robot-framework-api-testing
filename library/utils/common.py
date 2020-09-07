@@ -8,6 +8,7 @@ class Common:
     built_in = BuiltIn()
 
     def get_builtin_param(self, key: str) -> str:
-        value = self.built_in.get_variable_value('${' + key + '}', default=None)
+        value = self.built_in.get_variable_value(
+            '${' + key + '}', default=None)
         logger.info(f"Getting builtin data by key '${key}' = '${value}'")
         return value
