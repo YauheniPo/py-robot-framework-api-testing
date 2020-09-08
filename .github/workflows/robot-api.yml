@@ -74,9 +74,13 @@ jobs:
           && chromedriver --version
       - name: Show project dir files
         run: |
+          echo -------------
           echo $PATH
+          echo -------------
           pwd
+          echo -------------
           find . -not \( -path "*/.pytest_cache/*" -o -path "./.git/*" -o -path "*/__pycache__/*" -o -path "./.idea/*" \)
+          echo -------------
       - name: Run tests
         run: pabot --processes 10 --pythonpath library -d results/ -v BROWSER:${{ secrets.BROWSER }} -v API_KEY:${{ secrets.RAPIDAPI_KEY }} tests/Yauhoo-Finance-*.robot
       - name: Upload tests execution results
@@ -93,8 +97,6 @@ jobs:
       - name: Robot Reporter
         if: ${{ always() }}
         uses: joonvena/robotframework-reporter-action@v0.1
-        run:
-          echo ${{ github.workspace }}
         env:
           GH_ACCESS_TOKEN: ${{ secrets.TOKEN }}
           REPO_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
