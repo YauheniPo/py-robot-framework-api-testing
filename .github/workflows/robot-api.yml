@@ -86,7 +86,7 @@ jobs:
       - name: Run tests
         run: pabot --processes 10 --pythonpath library -d results/ -v BROWSER:${{ secrets.BROWSER }} -v API_KEY:${{ secrets.RAPIDAPI_KEY }} tests/Yauhoo-Finance-*.robot
       - name: Report files permissions
-        run: sudo chmod -R 777 .
+        run: sudo chmod +x ./results
       - name: Robot Framework
         if: ${{ always() }}
         uses: joonvena/robotframework-docker-action@v0.1
