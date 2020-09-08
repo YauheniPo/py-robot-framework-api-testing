@@ -75,8 +75,7 @@ jobs:
       - name: Show project dir files
         run: |
           echo $PATH
-          pwd=$(pwd)
-          echo $pwd
+          pwd
           find . -not \( -path "*/.pytest_cache/*" -o -path "./.git/*" -o -path "*/__pycache__/*" -o -path "./.idea/*" \)
       - name: Run tests
         run: pabot --processes 10 --pythonpath library -d results/ -v BROWSER:${{ secrets.BROWSER }} -v API_KEY:${{ secrets.RAPIDAPI_KEY }} tests/Yauhoo-Finance-*.robot
@@ -94,17 +93,19 @@ jobs:
       - name: Robot Reporter
         if: ${{ always() }}
         uses: joonvena/robotframework-reporter-action@v0.1
+        run:
+          echo ${{ github.workspace }}
         env:
           GH_ACCESS_TOKEN: ${{ secrets.TOKEN }}
           REPO_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
           COMMIT_SHA: ${{ github.sha }}
           REPOSITORY: ${{ env.GITHUB_REPOSITORY_NAME }}
-          REPORT_PATH: $pwd/results
+          REPORT_PATH: ../results
       - name: Robot Framework
         if: ${{ always() }}
         uses: joonvena/robotframework-docker-action@v0.1
         env:
           BROWSER: ${{ secrets.BROWSER }}
-          ROBOT_TESTS_DIR: ${{ github.workspace }}/tests
-          ROBOT_REPORTS_DIR: ${{ github.workspace }}/results
+          ROBOT_TESTS_DIR: ../tests
+          ROBOT_REPORTS_DIR: ../results
 
