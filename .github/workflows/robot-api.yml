@@ -74,11 +74,13 @@ jobs:
           && chromedriver --version
       - name: Show project dir files
         run: |
+          echo $PATH
           pwd
           find . -not \( -path "*/.pytest_cache/*" -o -path "./.git/*" -o -path "*/__pycache__/*" -o -path "./.idea/*" \)
       - name: Run tests
-        run: pabot --processes 10 --pythonpath library -d results/ -v BROWSER:headlesschrome -v API_KEY:${{secrets.RAPIDAPI_KEY}} tests/Yauhoo-Finance-*.robot
+        run: pabot --processes 10 --pythonpath library -d results/ -v BROWSER:headlesschrome -v API_KEY:${{secrets.RAPIDAPI_KEY}} tests/Yauhoo-Finance-Market-*.robot
       - name: Upload tests execution results
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: report
