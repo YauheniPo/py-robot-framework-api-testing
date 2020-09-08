@@ -102,12 +102,12 @@ jobs:
           REPO_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
           COMMIT_SHA: ${{ github.sha }}
           REPOSITORY: ${{ env.GITHUB_REPOSITORY_NAME }}
-          REPORT_PATH: ../results
+          REPORT_PATH: $GITHUB_WORKSPACE/results
       - name: Robot Framework
         if: ${{ always() }}
         uses: joonvena/robotframework-docker-action@v0.1
         env:
           BROWSER: ${{ secrets.BROWSER }}
-          ROBOT_TESTS_DIR: ../tests
-          ROBOT_REPORTS_DIR: ../results
+          ROBOT_TESTS_DIR: $GITHUB_WORKSPACE/tests
+          ROBOT_REPORTS_DIR: $GITHUB_WORKSPACE/results
 
