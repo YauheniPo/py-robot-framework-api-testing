@@ -74,11 +74,13 @@ jobs:
           && chromedriver --version
       - name: Show project dir files
         run: |
-          echo -------------
+          echo ------------- $PATH
           echo $PATH
-          echo -------------
+          echo ------------- PWD
           pwd
-          echo -------------
+          echo ------------- GitHub workspace
+          echo ${{ github.workspace }}
+          echo ------------- Find
           find . -not \( -path "*/.pytest_cache/*" -o -path "./.git/*" -o -path "*/__pycache__/*" -o -path "./.idea/*" \)
           echo -------------
       - name: Run tests
@@ -102,12 +104,12 @@ jobs:
           REPO_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
           COMMIT_SHA: ${{ github.sha }}
           REPOSITORY: ${{ env.GITHUB_REPOSITORY_NAME }}
-          REPORT_PATH: ${GITHUB_WORKSPACE}/results
+          REPORT_PATH: ${{ github.workspace }}/results
       - name: Robot Framework
         if: ${{ always() }}
         uses: joonvena/robotframework-docker-action@v0.1
         env:
           BROWSER: ${{ secrets.BROWSER }}
-          ROBOT_TESTS_DIR: ${GITHUB_WORKSPACE}/tests
-          ROBOT_REPORTS_DIR: ${GITHUB_WORKSPACE}/results
+          ROBOT_TESTS_DIR: ${{ github.workspace }}/tests
+          ROBOT_REPORTS_DIR: ${{ github.workspace }}/results
 
