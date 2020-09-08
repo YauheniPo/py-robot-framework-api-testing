@@ -90,7 +90,14 @@ jobs:
       - name: Robot Reporter
         if: ${{ always() }}
         uses: joonvena/robotframework-reporter-action@v0.1
+        env:
+          GH_ACCESS_TOKEN: ${{ secrets.TOKEN }}
+          REPO_OWNER: ${{ env.REPOSITORY_OWNER }}
+          COMMIT_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ env.REPOSITORY_NAME }}
+          REPORT_PATH: ${{ github.workspace }}/results
       - name: Robot Framework
+        if: ${{ always() }}
         uses: joonvena/robotframework-docker-action@v0.1
         env:
           BROWSER: ${{ secrets.BROWSER }}
