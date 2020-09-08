@@ -87,14 +87,17 @@ jobs:
           path: |
             results
           if-no-files-found: ignore # 'warn' or 'ignore' are also available, defaults to `warn`
+      - name: GitHub Environment Variables Action
+        if: ${{ always() }}
+        uses: FranzDiebold/github-env-vars-action@v1.2.0
       - name: Robot Reporter
         if: ${{ always() }}
         uses: joonvena/robotframework-reporter-action@v0.1
         env:
           GH_ACCESS_TOKEN: ${{ secrets.TOKEN }}
-          REPO_OWNER: ${{ env.GITHUB_REPOSITORY_OWNER }}
+          REPO_OWNER: $GITHUB_REPOSITORY_OWNER
           COMMIT_SHA: ${{ github.sha }}
-          REPOSITORY: ${{ env.GITHUB_REPOSITORY_NAME }}
+          REPOSITORY: $GITHUB_REPOSITORY_NAME
           REPORT_PATH: ${{ github.workspace }}/results
       - name: Robot Framework
         if: ${{ always() }}
