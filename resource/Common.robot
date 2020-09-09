@@ -1,6 +1,6 @@
 *** Settings ***
-#robot --pythonpath library -d results/ -v BROWSER:headlessfirefox -v API_KEY:<key> tests/Yauhoo-Finance-*.robot
-#pabot --processes 10 --pythonpath library -d results/ -v BROWSER:headlessfirefox -v API_KEY:<key> tests/Yauhoo-Finance-*.robot
+#robot --pythonpath . -d results/ -v BROWSER:headlessfirefox -v API_KEY:<key> tests/Yauhoo-Finance-*.robot
+#pabot --processes 10 --pythonpath . -d results/ -v BROWSER:headlessfirefox -v API_KEY:<key> tests/Yauhoo-Finance-*.robot
 Library             OperatingSystem
 Library             Collections
 Library             RequestsLibrary
