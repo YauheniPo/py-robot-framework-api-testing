@@ -1,9 +1,9 @@
 import json
 import os
 
-import configuration
-from models.quote_type import QuoteType
-from utils.common import Common
+from library import configuration
+from library.models.quote_type import QuoteType
+from library.utils.common import Common
 
 
 class ConfigReader(Common):

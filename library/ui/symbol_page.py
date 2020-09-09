@@ -1,6 +1,6 @@
-from models.symbol_ui import SymbolUI
-from ui.common import Common
-from ui.constants import SUMMARY_UI_API_MATCHER
+from library.models.symbol_ui import SymbolUI
+from library.ui.common import Common
+from library.ui.constants import SUMMARY_UI_API_MATCHER
 
 
 class SymbolPage(Common):

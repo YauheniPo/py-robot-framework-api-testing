@@ -1,4 +1,4 @@
-from models.symbol_ui import SymbolUI
+from library.models.symbol_ui import SymbolUI
 
 
 class UIKeywords:
