@@ -8,11 +8,11 @@ Library             DebugLibrary            #breakpoint keyword - Debug
 Library             SeleniumLibrary
 Library             StringFormat
 
-Library             utils.common.Common                 WITH NAME   COMMON
-Library             utils.json_reader.ConfigReader      WITH NAME   JSON
-Library             utils.soft_assert.SoftAssert        WITH NAME   SOFT
-Variables           api${/}constants.py
-Variables           ui${/}constants.py
-Variables           yahoo-finance${/}constants.py
+Library             library.utils.common.Common                 WITH NAME   COMMON
+Library             library.utils.json_reader.ConfigReader      WITH NAME   JSON
+Library             library.utils.soft_assert.SoftAssert        WITH NAME   SOFT
+Variables           library${/}api${/}constants.py
+Variables           library${/}ui${/}constants.py
+Variables           library${/}yahoo-finance${/}constants.py
 
 Resource            Keywords.robot
