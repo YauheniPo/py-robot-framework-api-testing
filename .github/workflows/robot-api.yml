@@ -84,7 +84,7 @@ jobs:
           find . -not \( -path "*/.pytest_cache/*" -o -path "./.git/*" -o -path "*/__pycache__/*" -o -path "./.idea/*" \)
           echo -------------
       - name: Run tests
-        run: pabot --processes 10 --pythonpath library -d results/ -v BROWSER:${{ secrets.BROWSER }} -v API_KEY:${{ secrets.RAPIDAPI_KEY }} tests/Yauhoo-Finance-*.robot
+        run: pabot --processes 10 --pythonpath . -d results/ -v BROWSER:${{ secrets.BROWSER }} -v API_KEY:${{ secrets.RAPIDAPI_KEY }} tests/Yauhoo-Finance-*.robot
       - name: Upload tests execution results
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
